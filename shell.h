@@ -1,19 +1,18 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <stdio.h> 
-#include <unistd.h> 
+#include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
-#include <string.h> 
+#include <string.h>
 #include <stddef.h>
-#include <errno.h> 
-#include <sys/types.h> 
-#include <sys/wait.h> 
-#include <sys/stat.h> 
-#include <signal.h> 
-#include <fcntl.h> 
-
-#include "macros.h" 
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <signal.h>
+#include <fcntl.h>
+#include "macros.h"
 
 /************* Structures **************/
 
@@ -141,7 +140,7 @@ int env_remove_key(char *key, data_of_program *data);
 void print_environ(data_of_program *data);
 
 
-/*======== helpers_print.c ========*/
+/*======== helper_print.c ========*/
 
 int _print(char *string);
 
@@ -150,7 +149,7 @@ int _printe(char *string);
 int _print_error(int errorcode, data_of_program *data);
 
 
-/*======== helpers_string.c ========*/
+/*======== helper_string.c ========*/
 
 int str_length(char *string);
 
@@ -181,4 +180,4 @@ char *get_alias(data_of_program *data, char *alias);
 int set_alias(char *alias_string, data_of_program *data);
 
 
-#endif 
+#endif /* SHELL_H */
