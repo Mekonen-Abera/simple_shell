@@ -1,2 +1,2 @@
 # simple_shell
-Group Task by Mekonen Abera &amp; Gebrekidan Alemayehu
+A project to wrap up sprint 1 of Alx SE program. Done by by two persons
