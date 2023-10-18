@@ -1,20 +1,22 @@
 #include "shell.h"
 
 /**
- * _print - writes a array of chars in the standar output
- * @string: pointer to the array of chars
- * Return: the number of bytes writed or .
- * On error, -1 is returned, and errno is set appropriately.
+ * _print - A function that writes an array of chars in the stdout
+ * @string: A pointer to the array of characters
+ * Done by: @Mekonen-Abera & @gebre-a
+ * Return: The number of bytes wrote
+ *       : -1 on errorno, and errno is set appropriately.
  */
 int _print(char *string)
 {
 	return (write(STDOUT_FILENO, string, str_length(string)));
 }
 /**
- * _printe - writes a array of chars in the standar error
- * @string: pointer to the array of chars
- * Return: the number of bytes writed or .
- * On error, -1 is returned, and errno is set appropriately.
+ * _printe - A function that writes an array of chars in the stdout
+ * @string: A pointer to the array of characters
+ * Done by: @Mekonen-Abera & @gebre-a
+ * Return: The number of bytes wrote
+ *       : -1 on errorno, and errno is set appropriately
  */
 int _printe(char *string)
 {
@@ -22,11 +24,11 @@ int _printe(char *string)
 }
 
 /**
- * _print_error - writes a array of chars in the standart error
- * @data: a pointer to the program's data'
- * @errorcode: error code to print
- * Return: the number of bytes writed or .
- * On error, -1 is returned, and errno is set appropriately.
+ * _print_error - A function that writes an array of chars in the stdout
+ * @string: A pointer to the array of characters
+ * Done by: @Mekonen-Abera & @gebre-a
+ * Return: The number of bytes wrote
+ *       : -1 on errorno, and errno is set appropriately
  */
 int _print_error(int errorcode, data_of_program *data)
 {

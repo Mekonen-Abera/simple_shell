@@ -1,9 +1,10 @@
 #include "shell.h"
 
 /**
- * str_length - returns the length of a string.
- * @string: pointer to string.
- * Return: length of string.
+ * str_length - A function that returns the length of a string
+ * @string: The pointer to string
+ * Done by: @MEkonen-Abera & @gebre-a
+ * Return: length of string
  */
 int str_length(char *string)
 {
@@ -19,14 +20,15 @@ int str_length(char *string)
 }
 
 /**
- * str_duplicate - duplicates an string
- * @string: String to be copied
+ * str_duplicate - It duplicates an string
+ * @string: The string copied
+ * Done by: @MEkonen-Abera & @gebre-a
  * Return: pointer to the array
  */
 char *str_duplicate(char *string)
 {
 	char *result;
-	int length, i;
+	int length, j;
 
 	if (string == NULL)
 		return (NULL);
@@ -41,20 +43,22 @@ char *str_duplicate(char *string)
 		perror("Error");
 		return (NULL);
 	}
-	for (i = 0; i < length ; i++)
+	for (j = 0; j < length ; j++)
 	{
-		result[i] = string[i];
+		result[j] = string[j];
 	}
 
 	return (result);
 }
 
 /**
- * str_compare - Compare two strings
- * @string1: String one, or the shorter
- * @string2: String two, or the longer
- * @number: number of characters to be compared, 0 if infinite
- * Return: 1 if the strings are equals,0 if the strings are different
+ * str_compare - A function that Compare two strings
+ * @string1: The first string or the shorter
+ * @string2: The second string or the longer
+ * @number: The number of chars compared, 0 if infinite
+ * Done by: @MEkonen-Abera & @gebre-a
+ * Return: 1 if the strings are equals
+ *       : 0 if the strings are different
  */
 int str_compare(char *string1, char *string2, int number)
 {
@@ -66,7 +70,7 @@ int str_compare(char *string1, char *string2, int number)
 	if (string1 == NULL || string2 == NULL)
 		return (0);
 
-	if (number == 0) /* infinite longitud */
+	if (number == 0)
 	{
 		if (str_length(string1) != str_length(string2))
 			return (0);
@@ -77,7 +81,7 @@ int str_compare(char *string1, char *string2, int number)
 		}
 		return (1);
 	}
-	else /* if there is a number of chars to be compared */
+	else 
 	{
 		for (iterator = 0; iterator < number ; iterator++)
 		{
@@ -89,10 +93,10 @@ int str_compare(char *string1, char *string2, int number)
 }
 
 /**
- * str_concat - concatenates two strings.
- * @string1: String to be concatenated
- * @string2: String to be concatenated
- *
+ * str_concat - A function that concatenates two strings
+ * @string1: The first string to be concatenated
+ * @string2: The second string to be concatenated
+ * Done by: @MEkonen-Abera & @gebre-a
  * Return: pointer to the array
  */
 char *str_concat(char *string1, char *string2)
@@ -116,12 +120,10 @@ char *str_concat(char *string1, char *string2)
 		return (NULL);
 	}
 
-	/* copy of string1 */
 	for (length1 = 0; string1[length1] != '\0'; length1++)
 		result[length1] = string1[length1];
 	free(string1);
 
-	/* copy of string2 */
 	for (length2 = 0; string2[length2] != '\0'; length2++)
 	{
 		result[length1] = string2[length2];
@@ -132,23 +134,22 @@ char *str_concat(char *string1, char *string2)
 	return (result);
 }
 
-
 /**
- * str_reverse - reverses a string.
- *
- * @string: pointer to string.
- * Return: void.
+ * str_reverse - A function that reverses a string
+ * @string: A pointer to string
+ * Done by: @MEkonen-Abera & @gebre-a
+ * Return: void
  */
 void str_reverse(char *string)
 {
 
-	int i = 0, length = str_length(string) - 1;
+	int j = 0, length = str_length(string) - 1;
 	char hold;
 
-	while (i < length)
+	while (j < length)
 	{
-		hold = string[i];
-		string[i++] = string[length];
+		hold = string[j];
+		string[j++] = string[length];
 		string[length--] = hold;
 	}
 }
