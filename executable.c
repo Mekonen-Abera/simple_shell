@@ -3,7 +3,7 @@
  * execute - It execute a command with entire path varriable
  * @data: A pointer to the data programmed
  * Done by: @Mekonen-Abera & @gebre-a
- * Return: 0 for success 
+ * Return: 0 for success
  *       : -1 otherwise
  */
 int execute(data_of_program *data)
@@ -22,9 +22,9 @@ int execute(data_of_program *data)
 	}
 	else
 	{
-		pidd = fork(); 
+		pidd = fork();
 		if (pidd == -1)
-		{ 
+		{
 			perror(data->command_name);
 			exit(EXIT_FAILURE);
 		}

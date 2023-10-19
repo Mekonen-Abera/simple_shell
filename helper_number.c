@@ -66,7 +66,7 @@ int _atoi(char *s)
 
 /**
  * count_characters - It counts the coincidences of character in a string
- * @string: The pointer to the origin string 
+ * @string:The pointer to the origin string
  * @character: The string with  characters counted
  * Done by: @Mekonen-Abera & @gebre-a
  * Return: int of string
