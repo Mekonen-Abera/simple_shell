@@ -25,7 +25,7 @@ int _printe(char *string)
 
 /**
  * _print_error - A function that writes an array of chars in the stdout
- * @string: A pointer to the array of characters
+ * @data: a pointer to the datas to be programmed
  * @errorcode: The error code to be printed
  * Done by: @Mekonen-Abera & @gebre-a
  * Return: The number of bytes wrote
