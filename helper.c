@@ -39,7 +39,7 @@ void free_all_data(data_of_program *data)
 }
 
 /**
- * free_array_of_pointers - A function that frees each pointer of an array of pointers
+ * free_array_of_pointers - A function that frees each pointer of an array
  * @array: An arrays of pointers
  * Done by: @Mekonen-Abera & @gebre-a
  * Return: Nothing

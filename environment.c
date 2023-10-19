@@ -27,16 +27,14 @@ char *env_get_key(char *key, data_of_program *data)
 	}
 	return (NULL);
 }
-
 /**
- * env_set_key - A function that overwrite the value of the env. variable
+ * env_set_key - A function that overwrite the value of the environment
  * @key: The name of the variable to be set
  * @value: The new values to be setted
  * @data: structures of the datas to be programmed
  * Done by: @Mekonen-Abera & @gebre-a
- * Return: 1 for the parameters are NULL
- *       : 2 for there is an erroror
- *       : 0 for sucess
+ * Return: 0 for sucess
+ *       : 1 for the parameters are NULL or, 2 for there is an erroror
  */
 
 int env_set_key(char *key, char *value, data_of_program *data)

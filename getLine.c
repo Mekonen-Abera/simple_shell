@@ -43,11 +43,10 @@ int _getline(data_of_program *data)
 	return (str_length(data->input_line));
 }
 
-
 /**
 * check_logic_ops - A function that checks and split for && and || operators
 * @array_commands: An array of commands
-* @i: index in an array_commands checked
+* @j: index in an array_commands checked
 * @array_operators: An array of the logical operators
 * Done by: @Meonen-Abera & @gebre-a
 * Return: The index of the last command in an array_commands
