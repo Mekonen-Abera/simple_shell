@@ -8,38 +8,38 @@
  */
 void expand_variables(data_of_program *data)
 {
-	int j, k;
+	int i, j;
 	char line[BUFFER_SIZE] = {0}, expansion[BUFFER_SIZE] = {'\0'}, *temp;
 
 	if (data->input_line == NULL)
 		return;
 	buffer_add(line, data->input_line);
-	for (j = 0; line[j]; j++)
-		if (line[j] == '#')
-			line[j--] = '\0';
-		else if (line[j] == '$' && line[j + 1] == '?')
+	for (i = 0; line[i]; i++)
+		if (line[i] == '#')
+			line[i--] = '\0';
+		else if (line[i] == '$' && line[i + 1] == '?')
 		{
-			line[j] = '\0';
+			line[i] = '\0';
 			long_to_string(errno, expansion, 10);
 			buffer_add(line, expansion);
-			buffer_add(line, data->input_line + j + 2);
+			buffer_add(line, data->input_line + i + 2);
 		}
-		else if (line[j] == '$' && line[j + 1] == '$')
+		else if (line[i] == '$' && line[i + 1] == '$')
 		{
-			line[j] = '\0';
+			line[i] = '\0';
 			long_to_string(getpid(), expansion, 10);
 			buffer_add(line, expansion);
-			buffer_add(line, data->input_line + j + 2);
+			buffer_add(line, data->input_line + i + 2);
 		}
-		else if (line[j] == '$' && (line[j + 1] == ' ' || line[j + 1] == '\0'))
+		else if (line[i] == '$' && (line[i + 1] == ' ' || line[i + 1] == '\0'))
 			continue;
-		else if (line[j] == '$')
+		else if (line[i] == '$')
 		{
-			for (k = 1; line[j + k] && line[j + k] != ' '; k++)
-				expansion[k - 1] = line[j + k];
+			for (j = 1; line[i + j] && line[i + j] != ' '; j++)
+				expansion[j - 1] = line[i + j];
 			temp = env_get_key(expansion, data);
-			line[j] = '\0', expansion[0] = '\0';
-			buffer_add(expansion, line + j + k);
+			line[i] = '\0', expansion[0] = '\0';
+			buffer_add(expansion, line + i + j);
 			temp ? buffer_add(line, temp) : 1;
 			buffer_add(line, expansion);
 		}
@@ -58,7 +58,7 @@ void expand_variables(data_of_program *data)
  */
 void expand_alias(data_of_program *data)
 {
-	int j, k, was_expanded = 0;
+	int i, j, was_expanded = 0;
 	char line[BUFFER_SIZE] = {0}, expansion[BUFFER_SIZE] = {'\0'}, *temp;
 
 	if (data->input_line == NULL)
@@ -66,18 +66,18 @@ void expand_alias(data_of_program *data)
 
 	buffer_add(line, data->input_line);
 
-	for (j = 0; line[j]; j++)
+	for (i = 0; line[i]; i++)
 	{
-		for (k = 0; line[j + k] && line[j + k] != ' '; k++)
-			expansion[k] = line[j + k];
-		expansion[k] = '\0';
+		for (j = 0; line[i + j] && line[i + j] != ' '; j++)
+			expansion[j] = line[i + j];
+		expansion[j] = '\0';
 
 		temp = get_alias(data, expansion);
 		if (temp)
 		{
 			expansion[0] = '\0';
-			buffer_add(expansion, line + j + k);
-			line[j] = '\0';
+			buffer_add(expansion, line + i + j);
+			line[i] = '\0';
 			buffer_add(line, temp);
 			line[str_length(line)] = '\0';
 			buffer_add(line, expansion);
@@ -101,13 +101,14 @@ void expand_alias(data_of_program *data)
  */
 int buffer_add(char *buffer, char *str_to_add)
 {
-	int length, j;
+	int length, i;
 
 	length = str_length(buffer);
-	for (j = 0; str_to_add[j]; j++)
+	for (i = 0; str_to_add[i]; i++)
 	{
-		buffer[length + j] = str_to_add[j];
+		buffer[length + i] = str_to_add[i];
 	}
-	buffer[length + j] = '\0';
-	return (length + j);
+	buffer[length + i] = '\0';
+	return (length + i);
 }
+

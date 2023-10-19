@@ -46,7 +46,7 @@ int _atoi(char *s)
 {
 	int sign = 1;
 	unsigned int number = 0;
-
+	/*1- analisys sign*/
 	while (!('0' <= *s && *s <= '9') && *s != '\0')
 	{
 		if (*s == '-')
@@ -56,6 +56,7 @@ int _atoi(char *s)
 		s++;
 	}
 
+	/*2 - extract the number */
 	while ('0' <= *s && *s <= '9' && *s != '\0')
 	{
 
@@ -75,12 +76,13 @@ int _atoi(char *s)
  */
 int count_characters(char *string, char *character)
 {
-	int j = 0, counter = 0;
+	int i = 0, counter = 0;
 
-	for (; string[j]; j++)
+	for (; string[i]; i++)
 	{
-		if (string[j] == character[0])
+		if (string[i] == character[0])
 			counter++;
 	}
 	return (counter);
 }
+

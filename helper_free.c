@@ -46,14 +46,15 @@ void free_all_data(data_of_program *data)
  */
 void free_array_of_pointers(char **array)
 {
-	int j;
+	int i;
 
 	if (array != NULL)
 	{
-		for (j = 0; array[j]; j++)
-			free(array[j]);
+		for (i = 0; array[i]; i++)
+			free(array[i]);
 
 		free(array);
 		array = NULL;
 	}
 }
+

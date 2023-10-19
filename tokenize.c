@@ -8,7 +8,7 @@
 void tokenize(data_of_program *data)
 {
 	char *delimiter = " \t";
-	int j, k, counter = 2, length;
+	int i, j, counter = 2, length;
 
 	length = str_length(data->input_line);
 	if (length)
@@ -17,11 +17,11 @@ void tokenize(data_of_program *data)
 			data->input_line[length - 1] = '\0';
 	}
 
-	for (j = 0; data->input_line[j]; j++)
+	for (i = 0; data->input_line[i]; i++)
 	{
-		for (k = 0; delimiter[k]; k++)
+		for (j = 0; delimiter[j]; j++)
 		{
-			if (data->input_line[j] == delimiter[k])
+			if (data->input_line[i] == delimiter[j])
 				counter++;
 		}
 	}
@@ -32,11 +32,12 @@ void tokenize(data_of_program *data)
 		perror(data->program_name);
 		exit(errno);
 	}
-	j = 0;
-	data->tokens[j] = str_duplicate(_strtok(data->input_line, delimiter));
+	i = 0;
+	data->tokens[i] = str_duplicate(_strtok(data->input_line, delimiter));
 	data->command_name = str_duplicate(data->tokens[0]);
-	while (data->tokens[j++])
+	while (data->tokens[i++])
 	{
-		data->tokens[j] = str_duplicate(_strtok(NULL, delimiter));
+		data->tokens[i] = str_duplicate(_strtok(NULL, delimiter));
 	}
 }
+

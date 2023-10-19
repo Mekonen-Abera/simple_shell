@@ -9,7 +9,7 @@
  **/
 int builtins_list(data_of_program *data)
 {
-	int counter;
+	int iterator;
 	builtins options[] = {
 		{"exit", builtin_exit},
 		{"help", builtin_help},
@@ -21,12 +21,16 @@ int builtins_list(data_of_program *data)
 		{NULL, NULL}
 	};
 
-	for (counter = 0; options[counter].builtin != NULL; counter++)
+/*walk through the structure*/
+	for (iterator = 0; options[iterator].builtin != NULL; iterator++)
 	{
-		if (str_compare(options[counter].builtin, data->command_name, 0))
+/*if there is a match between the given command and a builtin,*/
+		if (str_compare(options[iterator].builtin, data->command_name, 0))
 		{
-			return (options[counter].function(data));
+/*execute the function, and return the return value of the function*/
+			return (options[iterator].function(data));
 		}
+/*if there is no match return -1 */
 	}
 	return (-1);
 }
