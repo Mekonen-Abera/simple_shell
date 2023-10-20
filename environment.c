@@ -13,7 +13,8 @@ char *env_get_key(char *key, data_of_program *data)
 	int i, key_length = 0;
 
 	if (key == NULL || data->env == NULL)
-		return (NULL}
+		return (NULL);
+
 	key_length = str_length(key);
 
 	for (i = 0; data->env[i]; i++)
